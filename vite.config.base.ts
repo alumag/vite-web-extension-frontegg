@@ -14,6 +14,15 @@ const isDev = process.env.__DEV__ === 'true';
 // set this flag to true, if you want localization support
 const localize = false;
 
+export const getHostPermissions = (env: Record<string, string>) =>
+  ({
+    host_permissions: [
+      "*://*.frontegg.com/*",
+      `${env.VITE_PUBLIC_APP_URL}/*`,
+      `${env.VITE_PUBLIC_BASE_API_URL}/*`,
+    ],
+  }) as ManifestV3Export;
+
 export const baseManifest = {
     ...manifest,
     version: pkg.version,
