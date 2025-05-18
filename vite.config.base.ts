@@ -5,10 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, BuildOptions } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { stripDevIcons, crxI18n } from './custom-vite-plugins';
+import { patchFronteggJs } from './frontegg-vite-plugin';
 import manifest from './manifest.json';
 import devManifest from './manifest.dev.json';
 import pkg from './package.json';
-
 
 const isDev = process.env.__DEV__ === 'true';
 // set this flag to true, if you want localization support
@@ -46,6 +46,7 @@ export default defineConfig({
     react(),
     stripDevIcons(isDev),
     crxI18n({ localize, src: './src/locales' }),
+    patchFronteggJs(isDev),
   ],
   publicDir: resolve(__dirname, 'public'),
 });
