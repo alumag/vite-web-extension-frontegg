@@ -17,6 +17,9 @@
   },
   "type": "module",
   "dependencies": {
+    "@frontegg/js": "^7.71.0",
+    "@frontegg/react-hooks": "^7.71.0",
+    "@frontegg/rest-api": "^7.71.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "webextension-polyfill": "^0.12.0"
