@@ -1,7 +1,13 @@
-name: Build and Zip Chrome Extension
+name: Test and Build Chrome & Firefox Extensions
 
 on:
-  workflow_dispatch:
+  push:
+    branches: ["main"]
+  # Triggers the workflow pull request events but only for the "main" branch
+  merge_group:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -11,8 +17,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -31,8 +35,5 @@ jobs:
       - name: Build Chrome
         run: pnpm build:chrome
 
-      - name: Upload Chrome extension artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: vite-web-extension-chrome
-          path: dist_chrome
+      - name: Build Firefox
+        run: pnpm build:firefox

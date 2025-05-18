@@ -1,14 +1,12 @@
 <div align="center">
+<div>
 <img src="public/icon-128.png" alt="logo"/>
-<h1> Minimalist Chrome/Firefox Extension Boilerplate with<br/>React + Vite + TypeScript + TailwindCSS</h1>
+<img height="128px" src="public/frontegg.png" alt="logo"/>
+</div>
 
-<h5>
-This template repository is a side product of my Chrome Extension <a target="_blank" rel="noopener noreferrer" href="https://chrome.google.com/webstore/detail/supatabs/icbcnjlaegndjabnjbaeihnnmidbfigk">Supatabs</a>.
-<br />
-If you tend to have tons of tabs open, or are a OneTab user, make sure to check it out <a target="_blank" rel="noopener noreferrer" href="https://chrome.google.com/webstore/detail/supatabs/icbcnjlaegndjabnjbaeihnnmidbfigk">here</a>!
-</h5>
+<h1> Minimalist Chrome/Firefox Extension Boilerplate with<br/>@frontegg/js + React + Vite + TypeScript + TailwindCSS</h1>
 
-<h5>Supatabs is an example and showcase of what you can develop with this template. (anything you want, really 🚀)</h5>
+This template is a fork of [JohnBra/vite-web-extension](https://github.com/JohnBra/vite-web-extension) with **Frontegg user authentication**, ready to publish to the Google Chrome Store.
 
 </div>
 
@@ -17,11 +15,10 @@ If you tend to have tons of tabs open, or are a OneTab user, make sure to check 
 - [Intro](#intro)
 - [Features](#features)
 - [Usage](#usage)
-  - [Getting Started](#gettingStarted) 
+  - [Getting Started](#gettingStarted)
   - [Customization](#customization)
   - [Publish](#publish)
 - [Tech Docs](#tech)
-- [Credit](#credit)
 - [Contributing](#contributing)
 
 
@@ -57,14 +54,15 @@ for Chrome by default.
 
 1. Clone this repository or click "Use this template"
 2. Change `name` and `description` in `manifest.json`
-3. Run `yarn` or `npm i` (check your node version >= 16)
-4. Run `yarn dev[:chrome|:firefox]`, or `npm run dev[:chrome|:firefox]`
+3. Run `pnpm` or `npm i` (check your node version >= 16)
+4. Copy `.env.example` to `.env` and set up your Frontegg configs
+5. Run `pnpm dev[:chrome|:firefox]`, or `pnpm run dev[:chrome|:firefox]`
 
 Running a `dev` command will build your extension and watch for changes in the 
 source files. Changing the source files will refresh the corresponding 
 `dist_<chrome|firefox>` folder.
 
-To create an optimized production build, run `yarn build[:chrome|:firefox]`, or
+To create an optimized production build, run `pnpm build[:chrome|:firefox]`, or
 `npm run build[:chrome|:firefox]`.
 
 #### Load your extension
@@ -168,6 +166,7 @@ To run the workflow do the following:
 6. Upload this file to the Chrome Web Store as described [here](https://developer.chrome.com/docs/webstore/publish/)
 
 # Tech Docs <a name="tech"></a>
+- [Frontegg vanilla.js](https://developers.frontegg.com/sdks/frontend/vanilla/hosted-login)
 - [Vite](https://vitejs.dev/)
 - [Vite Plugins](https://vitejs.dev/guide/api-plugin.html)
 - [Chrome Extension with manifest 3](https://developer.chrome.com/docs/extensions/mv3/)
