@@ -1,8 +1,9 @@
 import { useCallback } from "react";
+import Browser from "webextension-polyfill";
 
 const APP_URL = import.meta.env.VITE_PUBLIC_APP_URL;
 
-export const useLoginCallback = (callback: (tab: chrome.tabs.Tab) => void) => {
+export const useLoginCallback = (callback: (tab: Browser.Tabs.Tab) => void) => {
     return useCallback(() => {
         /**
          * Navigate to the login page specifically, and not just for the app, to force new login.
@@ -15,6 +16,6 @@ export const useLoginCallback = (callback: (tab: chrome.tabs.Tab) => void) => {
          *  window.close();
          * });
          */
-        chrome.tabs.create({ url: `${APP_URL}/account/login` }, callback);
+        Browser.tabs.create({ url: `${APP_URL}/account/login` }).then(callback).catch(console.error);
   }, []);
 };
