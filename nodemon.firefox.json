@@ -3,6 +3,7 @@
     "__DEV__": "true"
   },
   "watch": [
+    ".env",
     "src",
     "utils",
     "vite.config.base.ts",
